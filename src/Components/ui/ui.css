@@ -1,8 +1,53 @@
 .dialog-root {
-  position: relative;
-  z-index: 50;
+  position: fixed;
+  inset: 0;
+  z-index: 1200;
+  display: grid;
+  place-items: center;
+  padding: 20px;
+}
+
+.dialog-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(3, 4, 7, 0.72);
+  backdrop-filter: blur(2px);
+  animation: dialogOverlayIn 0.22s ease-out;
 }
 
 .dialog-content {
-  background: white;
+  position: relative;
+  z-index: 1;
+  width: min(560px, calc(100vw - 32px));
+  border-radius: 18px;
+  border: 1px solid var(--border-soft);
+  background: linear-gradient(
+    160deg,
+    rgba(17, 17, 19, 0.98),
+    rgba(22, 23, 26, 0.96)
+  );
+  box-shadow: var(--shadow-soft);
+  color: var(--text-100);
+  animation: dialogContentIn 0.28s ease-out;
+  transform-origin: center;
+}
+
+@keyframes dialogOverlayIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes dialogContentIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px) scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
 }

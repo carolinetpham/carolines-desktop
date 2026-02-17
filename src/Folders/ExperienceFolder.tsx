@@ -1,13 +1,11 @@
 import React, { useState } from "react";
-import { FaFolder } from "react-icons/fa";
-import { CloseOutlined } from "@ant-design/icons";
 import "./StyleSheets/styles.css";
 import "./StyleSheets/experience.css";
 import { Modal, Timeline } from "antd";
+import { getLucideIcon } from "../lib/lucide";
 
-const FolderIcon = FaFolder as unknown as React.FC<
-  React.SVGProps<SVGSVGElement>
->;
+const FolderIcon = getLucideIcon("Folder");
+const CloseIcon = getLucideIcon("X");
 
 const ExperienceClickComponent: React.FC = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -23,56 +21,34 @@ const ExperienceClickComponent: React.FC = () => {
       <div className="folder-wrapper">
         <FolderIcon
           onClick={showModal}
-          style={{
-            color: "#fff2b3",
-            cursor: "pointer",
-            fontSize: "100px",
-            filter: "drop-shadow(2px 2px 2px #242424)",
-          }}
+          className="folder-icon"
+          size={96}
+          strokeWidth={1.5}
         />
         <span className="folder-text">Experience</span>
       </div>
       <Modal
+        className="folder-modal"
         width={isMobile ? "90%" : "60%"}
         open={isModalOpen}
         closable={false}
         footer={null}
-        style={{
-          padding: 0,
-          height: "80vh",
-          display: "flex",
-          flexDirection: "column",
-        }}
+        styles={{ body: { padding: 0, maxHeight: "80vh", overflowY: "auto", overflowX: "hidden" } }}
       >
-        {/* Fixed Header */}
-        <div
-          style={{
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "space-between",
-            padding: "10px 20px",
-            backgroundColor: "#fff",
-            borderBottom: "1px solid #ddd",
-            position: "sticky",
-            top: 0,
-            zIndex: 10,
-          }}
-        >
-          <span style={{ fontSize: "18px", fontWeight: "bold" }}>
-            Experience
-          </span>
-
-          <CloseOutlined
+        <div className="folder-panel-header">
+          <div className="folder-panel-header-left">
+            <span className="folder-panel-title">Experience</span>
+          </div>
+          <button
+            type="button"
             onClick={handleCancel}
-            style={{
-              background: "none",
-              border: "none",
-              cursor: "pointer",
-              fontSize: "18px",
-            }}
-          />
+            className="folder-panel-action"
+            aria-label="Close Experience modal"
+          >
+            <CloseIcon size={18} />
+          </button>
         </div>
-        <div className="work-timeline">
+        <div className="work-timeline folder-panel-content">
           <Timeline
             className="timeline-items"
             pending={

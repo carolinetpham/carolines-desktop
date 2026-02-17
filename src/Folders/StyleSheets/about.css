@@ -1,6 +1,6 @@
 /*About Me Styling*/
 
-h2 {
+.about-header h2 {
   font-size: 26px;
   margin: 0;
   font-family: var(--font-display);
@@ -27,7 +27,7 @@ h2 {
   justify-content: center;
   align-items: center;
   gap: 20px;
-  padding: 24px 28px;
+  padding: 24px 28px 30px;
 }
 
 .about-dialog-body {
@@ -41,13 +41,15 @@ h2 {
   flex-direction: column;
   justify-content: center;
   gap: 12px;
-  padding: 24px !important;
+  padding: 24px;
 }
 
 .headshot {
-  border-radius: 24px;
-  filter: drop-shadow(0 18px 26px rgba(12, 18, 34, 0.45));
+  display: block;
   width: 280px;
+  border-radius: 50%;
+  border: 1px solid var(--border-soft);
+  filter: drop-shadow(0 18px 26px rgba(12, 18, 34, 0.45));
   max-width: 100%;
   height: auto;
 }
@@ -62,7 +64,7 @@ h2 {
     gap: 20px;
     width: 100%;
   }
-  h2 {
+  .about-header h2 {
     text-align: center;
   }
 
@@ -74,6 +76,6 @@ h2 {
   }
 
   .about-text {
-    padding: 16px !important;
+    padding: 16px;
   }
 }

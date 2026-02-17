@@ -6,8 +6,25 @@ type DialogProps = {
   children: React.ReactNode;
 };
 
-export const Dialog: React.FC<DialogProps> = ({ open = true, children }) => {
-  return open ? <div className="dialog-root">{children}</div> : null;
+export const Dialog: React.FC<DialogProps> = ({
+  open = true,
+  onOpenChange,
+  children,
+}) => {
+  if (!open) {
+    return null;
+  }
+
+  return (
+    <div className="dialog-root" role="dialog" aria-modal="true">
+      <div
+        className="dialog-overlay"
+        onClick={() => onOpenChange?.(false)}
+        aria-hidden="true"
+      />
+      {children}
+    </div>
+  );
 };
 
 type DialogContentProps = React.HTMLAttributes<HTMLDivElement> & {
@@ -17,10 +34,18 @@ type DialogContentProps = React.HTMLAttributes<HTMLDivElement> & {
 
 export const DialogContent: React.FC<DialogContentProps> = ({
   children,
+  onClick,
   ...props
 }) => {
   return (
-    <div className="dialog-content" {...props}>
+    <div
+      className="dialog-content"
+      onClick={(event) => {
+        event.stopPropagation();
+        onClick?.(event);
+      }}
+      {...props}
+    >
       {children}
     </div>
   );

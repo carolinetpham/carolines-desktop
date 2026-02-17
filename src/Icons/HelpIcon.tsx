@@ -28,10 +28,7 @@ const HelpIcon = ({ username }: FoldersProps) => {
         style={{ color: "var(--text-200)" }}
       />
       <Dialog open={isModalOpen} onOpenChange={setIsModalOpen}>
-        <DialogContent
-          onInteractOutside={(event) => event.preventDefault()}
-          onEscapeKeyDown={(event) => event.preventDefault()}
-        >
+        <DialogContent>
           <div className="tutorial-popup">
             <h2>Hi, {username}!</h2>
             <p>Click on the folders or the icons to explore more about me :)</p>
