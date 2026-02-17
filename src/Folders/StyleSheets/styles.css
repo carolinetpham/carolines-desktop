@@ -490,4 +490,9 @@
   .folder-modal .ant-modal-body {
     max-height: calc(94vh - 54px);
   }
+
+  .dialog-body {
+    margin: 10px 12px 16px;
+    padding: 14px 14px 20px;
+  }
 }

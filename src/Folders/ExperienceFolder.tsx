@@ -7,6 +7,10 @@ import { getLucideIcon } from "../lib/lucide";
 const FolderIcon = getLucideIcon("Folder");
 const CloseIcon = getLucideIcon("X");
 
+const FolderIcon = FaFolder as unknown as React.FC<
+  React.SVGProps<SVGSVGElement>
+>;
+
 const ExperienceClickComponent: React.FC = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const isMobile = window.innerWidth < 768;
