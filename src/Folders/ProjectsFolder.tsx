@@ -5,7 +5,13 @@ import { ArrowLeftOutlined, CloseOutlined } from "@ant-design/icons";
 import ReactMarkdown from "react-markdown";
 import "./StyleSheets/projects.css";
 
+const FolderIcon = FaFolder as unknown as React.FC<
+  React.SVGProps<SVGSVGElement>
+>;
+
 const ProjectsClickComponent: React.FC = () => {
+const markdownFiles = import.meta.glob("./ProjectMarkdowns/*.md", { as: "raw" });
+
   const [isModalOpen, setIsModalOpen] = useState(false);
   const isMobile = window.innerWidth < 768;
   const [currentView, setCurrentView] = useState<"projects" | "details">(
@@ -134,15 +140,15 @@ const ProjectsClickComponent: React.FC = () => {
   const handleLearnMore = async (projectId: string) => {
     const project = projects.find((p) => p.id === projectId);
     if (project && project.markdownFile) {
-      const content = await import(`${project.markdownFile}`);
-      fetch(content.default)
-        .then((response) => response.text())
-        .then((text) => {
-          setMarkdownContent(text);
-          setSelectedProject(projectId);
-          setCurrentView("details");
-        })
-        .catch((error) => console.error("Error loading Markdown:", error));
+      const loader = markdownFiles[project.markdownFile];
+      if (!loader) {
+        console.error("Markdown file not found:", project.markdownFile);
+        return;
+      }
+      const text = await loader();
+      setMarkdownContent(text);
+      setSelectedProject(projectId);
+      setCurrentView("details");
     }
   };
 
@@ -156,7 +162,7 @@ const ProjectsClickComponent: React.FC = () => {
   return (
     <>
       <div className="folder-wrapper">
-        <FaFolder
+        <FolderIcon
           onClick={showModal}
           style={{
             color: "#fff2b3",

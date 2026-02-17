@@ -1,6 +1,7 @@
-import { FaGithub } from "react-icons/fa";
+import { getLucideIcon } from "../lib/lucide";
 import "./icons.css";
 export default function Github() {
+  const GithubIcon = getLucideIcon("Github");
   return (
     <div className="github-wrapper">
       <a
@@ -8,10 +9,11 @@ export default function Github() {
         target="_blank"
         rel="noopener noreferrer"
       >
-        <FaGithub
+        <GithubIcon
+          size={80}
+          strokeWidth={1.5}
           style={{
-            fontSize: "80px",
-            color: "#fddcfb",
+            color: "var(--text-200)",
             cursor: "pointer",
             filter: "drop-shadow(2px 2px 2px #242424)",
           }}

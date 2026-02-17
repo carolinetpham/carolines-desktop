@@ -5,6 +5,10 @@ import "./StyleSheets/styles.css";
 import "./StyleSheets/experience.css";
 import { Modal, Timeline } from "antd";
 
+const FolderIcon = FaFolder as unknown as React.FC<
+  React.SVGProps<SVGSVGElement>
+>;
+
 const ExperienceClickComponent: React.FC = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const isMobile = window.innerWidth < 768;
@@ -17,7 +21,7 @@ const ExperienceClickComponent: React.FC = () => {
   return (
     <>
       <div className="folder-wrapper">
-        <FaFolder
+        <FolderIcon
           onClick={showModal}
           style={{
             color: "#fff2b3",

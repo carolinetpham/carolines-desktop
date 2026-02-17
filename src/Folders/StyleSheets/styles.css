@@ -1,23 +1,25 @@
-@import url("https://fonts.googleapis.com/css2?family=Playwrite+DE+Grund:wght@100..400&display=swap");
-
 /*General Styling*/
 #folders-container {
   display: flex;
   justify-content: space-between;
-  margin-left: 10px;
+  padding: 24px 28px;
+  gap: 32px;
+  min-height: 100vh;
 }
 
 #row-one {
   display: flex;
   align-items: left;
   flex-direction: column;
+  gap: 18px;
 }
 
 #row-two {
   display: flex;
   align-items: right;
   flex-direction: column;
-  margin-right: 15px;
+  gap: 18px;
+  margin-right: 8px;
 }
 
 .modal-overlay {
@@ -53,41 +55,45 @@
 }
 
 .highlight-folder .tooltip-step1 {
-  font-family: "Poppins";
+  font-family: var(--font-body);
   position: absolute;
   top: -20px;
   left: 180px;
-  background: rgba(255, 255, 255, 0.9);
+  background: rgba(15, 22, 38, 0.95);
+  color: var(--text-100);
   padding: 15px;
-  border-radius: 10px;
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+  border-radius: 14px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 12px 30px rgba(10, 16, 30, 0.45);
   width: 400px;
 }
 
 .highlight-folder .tooltip-step2 {
-  font-family: "Poppins";
+  font-family: var(--font-body);
   position: absolute;
   top: -20px;
   right: 50px;
-  background: rgba(255, 255, 255, 0.9);
+  background: rgba(15, 22, 38, 0.95);
+  color: var(--text-100);
   padding: 15px;
-  border-radius: 10px;
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+  border-radius: 14px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 12px 30px rgba(10, 16, 30, 0.45);
   width: 400px;
 }
 
 .highlight-folder::after {
-  font-family: "Poppins";
+  font-family: var(--font-body);
   content: "";
   position: absolute;
   width: 125px;
   height: 125px;
-  border: 5px solid #a3a9ff;
+  border: 4px solid rgba(106, 123, 255, 0.8);
   border-radius: 50%;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 0 18px rgba(90, 120, 255, 0.45);
   animation: pulse 1.5s infinite;
 }
 
@@ -109,19 +115,20 @@
 }
 
 .end-button {
-  font-family: "Poppins";
-  background: #a3a9ff;
+  font-family: var(--font-body);
+  background: rgba(106, 123, 255, 0.9);
   color: white;
   border: none;
   padding: 10px 15px;
-  border-radius: 5px;
+  border-radius: 999px;
   cursor: pointer;
   margin-top: 15px;
   transition: 0.3s ease-in-out;
 }
 
 .end-button:hover {
-  background: #4f2574;
+  background: rgba(106, 123, 255, 1);
+  transform: translateY(-2px);
 }
 
 /* Fade-in animation for overlay */
@@ -222,13 +229,48 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  gap: 10px;
+  padding: 14px 16px;
+  border-radius: 18px;
+  background: rgba(22, 22, 24, 0.82);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.55);
+  backdrop-filter: blur(10px);
+  transition: transform 0.3s ease, background 0.3s ease, box-shadow 0.3s ease;
 }
 
 .folder-text {
-  font-size: 20px;
-  color: white;
-  filter: drop-shadow(1px 1px 1px #606060);
-  font-family: "Poppins";
+  font-size: 18px;
+  color: var(--text-100);
+  letter-spacing: 0.02em;
+  filter: drop-shadow(0 6px 10px rgba(7, 11, 22, 0.55));
+  font-family: var(--font-display);
+}
+
+.folder-wrapper svg {
+  transition: transform 0.35s ease, filter 0.35s ease, opacity 0.35s ease;
+  filter: drop-shadow(0 14px 20px rgba(4, 8, 18, 0.55));
+}
+
+.folder-wrapper:hover svg {
+  transform: translateY(-4px) scale(1.04);
+  filter: drop-shadow(0 18px 26px rgba(0, 0, 0, 0.7));
+}
+
+.folder-wrapper:active svg {
+  transform: translateY(1px) scale(0.98);
+}
+
+.folder-wrapper:hover {
+  background: rgba(28, 28, 32, 0.96);
+  box-shadow: 0 22px 46px rgba(0, 0, 0, 0.6);
+}
+
+.dialog-body {
+  padding: 18px 22px 28px;
+  background: rgba(255, 255, 255, 0.02);
+  border-radius: 18px;
+  margin: 14px 18px 20px;
 }
 
 /*Mobile Device Styling*/
@@ -300,7 +342,12 @@
 
   #folders-container {
     margin: 0;
-    padding: 0;
+    padding: 16px;
     width: 100vw;
+  }
+
+  .dialog-body {
+    margin: 10px 12px 16px;
+    padding: 14px 14px 20px;
   }
 }
