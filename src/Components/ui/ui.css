@@ -1,0 +1,8 @@
+.dialog-root {
+  position: relative;
+  z-index: 50;
+}
+
+.dialog-content {
+  background: white;
+}

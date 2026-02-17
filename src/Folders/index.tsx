@@ -11,8 +11,12 @@ import BottomNavBar from "../Components/BottomNavBar";
 import "../index.css";
 import HelpIcon from "../Icons/HelpIcon";
 
+type FoldersPageProps = {
+  onLogout?: () => void;
+};
 
-export default function FoldersPage() {
+
+export default function FoldersPage({ onLogout }: FoldersPageProps) {
 
   // References to folder and icon containers
   const skillsRef = useRef<HTMLDivElement>(null);

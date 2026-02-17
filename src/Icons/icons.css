@@ -5,6 +5,10 @@
   align-items: center;
   justify-content: center;
   margin-top: 20px;
+  gap: 10px;
+  padding: 6px;
+  border-radius: 16px;
+  transition: background 0.3s ease, transform 0.3s ease;
 }
 
 .github-icon-link {
@@ -13,9 +17,10 @@
 
 .icon-text {
   font-size: 20px;
-  color: white;
-  filter: drop-shadow(1px 1px 1px #606060);
-  font-family: "Poppins";
+  color: var(--text-100);
+  filter: drop-shadow(0 6px 10px rgba(7, 11, 22, 0.55));
+  font-family: var(--font-display);
+  letter-spacing: 0.02em;
 }
 
 /*LinkedIn styling*/
@@ -25,6 +30,10 @@
   align-items: center;
   justify-content: center;
   margin-top: 20px;
+  gap: 10px;
+  padding: 6px;
+  border-radius: 16px;
+  transition: background 0.3s ease, transform 0.3s ease;
 }
 
 .linkedin-icon-link {
@@ -38,6 +47,49 @@
   align-items: center;
   justify-content: center;
   margin-top: 20px;
+  gap: 10px;
+  padding: 6px;
+  border-radius: 16px;
+  transition: background 0.3s ease, transform 0.3s ease;
+}
+
+.mail-button {
+  background: transparent;
+  border: none;
+  padding: 0;
+  margin: 0;
+  line-height: 0;
+}
+
+.mail-button:focus-visible {
+  outline: 2px solid var(--accent-3);
+  outline-offset: 6px;
+  border-radius: 8px;
+}
+
+.github-wrapper svg,
+.linkedin-wrapper svg,
+.mail-container svg,
+.resume-wrapper svg {
+  transition: transform 0.35s ease, filter 0.35s ease;
+  filter: drop-shadow(0 12px 18px rgba(0, 0, 0, 0.6));
+  opacity: 0.82;
+}
+
+.github-wrapper:hover svg,
+.linkedin-wrapper:hover svg,
+.mail-container:hover svg,
+.resume-wrapper:hover svg {
+  transform: translateY(-4px) scale(1.04);
+  filter: drop-shadow(0 20px 28px rgba(0, 0, 0, 0.7));
+  opacity: 1;
+}
+
+.github-wrapper:active svg,
+.linkedin-wrapper:active svg,
+.mail-container:active svg,
+.resume-wrapper:active svg {
+  transform: translateY(1px) scale(0.98);
 }
 
 /*Resume Styling*/
@@ -47,7 +99,12 @@
   align-items: center;
   justify-content: center;
   margin-top: 20px;
+  gap: 10px;
+  padding: 6px;
+  border-radius: 16px;
+  transition: background 0.3s ease, transform 0.3s ease;
 }
+
 
 .resume-icon-link {
   text-decoration: none;
@@ -56,11 +113,15 @@
 /*Help Icon*/
 /* Tutorial Popup Styling */
 .tutorial-popup {
-  font-family: "Poppins";
+  font-family: var(--font-body);
   padding: 20px;
-  border-radius: 15px;
+  border-radius: 16px;
   text-align: center;
   z-index: 1000;
+  background: rgba(20, 20, 22, 0.96);
+  color: var(--text-100);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.55);
 }
 
 .help-icon {
@@ -68,9 +129,16 @@
   bottom: 70px;            
   right: 20px;             
   font-size: 2rem;       
-  color: white;
+  width: 2rem;
+  height: 2rem;
+  color: var(--text-200);
   cursor: pointer;
   animation: wiggle 1s infinite;
+}
+
+.help-icon:hover {
+  transform: scale(1.08);
+  color: var(--accent-1);
 }
 
 @keyframes wiggle {
@@ -98,16 +166,17 @@
 }
 
 .ok-button {
-  font-family: "Poppins";
-  background: #a3a9ff;
+  font-family: var(--font-display);
+  background: rgba(106, 123, 255, 0.9);
   color: white;
   border: none;
-  border-radius: 10px;
+  border-radius: 999px;
   padding: 10px 20px;
   cursor: pointer;
   transition: 0.3s ease-in-out;
 }
 
 .ok-button:hover {
-  background: #68368b;
+  background: rgba(106, 123, 255, 1);
+  transform: translateY(-2px);
 }

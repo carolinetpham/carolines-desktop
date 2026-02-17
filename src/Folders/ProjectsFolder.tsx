@@ -5,6 +5,10 @@ import { ArrowLeftOutlined, CloseOutlined } from "@ant-design/icons";
 import ReactMarkdown from "react-markdown";
 import "./StyleSheets/projects.css";
 
+const FolderIcon = FaFolder as unknown as React.FC<
+  React.SVGProps<SVGSVGElement>
+>;
+
 const ProjectsClickComponent: React.FC = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const isMobile = window.innerWidth < 768;
@@ -156,7 +160,7 @@ const ProjectsClickComponent: React.FC = () => {
   return (
     <>
       <div className="folder-wrapper">
-        <FaFolder
+        <FolderIcon
           onClick={showModal}
           style={{
             color: "#fff2b3",

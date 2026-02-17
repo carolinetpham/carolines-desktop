@@ -2,13 +2,16 @@
     display: flex;
     justify-content: center;
     font-size: 75px;
-    color: white;
+    color: var(--text-100);
+    font-family: var(--font-display);
+    letter-spacing: 0.02em;
 }
 
 .date-format {
     display: flex;
     justify-content: center;
-    color: white;
+    color: var(--text-200);
+    font-family: var(--font-body);
 }
 
 .login-date-time-container {

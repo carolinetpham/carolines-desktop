@@ -1,6 +1,7 @@
-import { IoIosPaper } from "react-icons/io";
+import { getLucideIcon } from "../lib/lucide";
 import "./icons.css";
-export default function Github() {
+export default function Resume() {
+  const ResumeIcon = getLucideIcon("FileText");
   return (
     <div className="resume-wrapper">
       <a
@@ -8,10 +9,11 @@ export default function Github() {
         target="_blank"
         rel="noopener noreferrer"
       >
-        <IoIosPaper
+        <ResumeIcon
+          size={80}
+          strokeWidth={1.5}
           style={{
-            fontSize: "80px",
-            color: "#fddcfb",
+            color: "var(--text-200)",
             cursor: "pointer",
             filter: "drop-shadow(2px 2px 2px #242424)",
           }}

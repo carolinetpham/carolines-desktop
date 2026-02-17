@@ -2,8 +2,8 @@
   display: flex;
   justify-content: flex-end;
   align-items: center;
-  font-family: 'Poppins';
-  color: #ffffff;
+  font-family: var(--font-body);
+  color: var(--text-100);
   padding-right: 20px;
 }
 

@@ -13,44 +13,71 @@
     flex-wrap: wrap; 
     justify-content: center; 
     gap: 10px; 
-    padding: 10px 0; 
+    padding: 10px 12px 6px;
   }
   
-  .button-options button {
-    padding: 10px 15px; 
-    font-size: 14px; 
-    font-family: "Poppins";
-    border-radius: 5px; 
-    border: none; 
-    transition: all 0.3s ease; 
-  }
+.button-options button {
+  padding: 10px 16px; 
+  font-size: 14px; 
+  max-width: 100%;
+  font-family: var(--font-display);
+  letter-spacing: 0.02em;
+  border-radius: 999px; 
+  border: 1px solid rgba(255, 255, 255, 0.12); 
+  transition: transform 0.25s ease, box-shadow 0.25s ease, opacity 0.25s ease; 
+  box-shadow: 0 10px 22px rgba(11, 16, 30, 0.25);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
   
-  .button-options button:hover {
-    transform: scale(1.05); 
-    opacity: 0.9; 
-  }
+.button-options button:hover {
+  transform: translateY(-2px) scale(1.03); 
+  opacity: 0.9; 
+}
   
   @media (max-width: 800px) {
     .button-options {
       display: grid; 
-      grid-template-columns: repeat(2, 1fr); 
+      grid-template-columns: repeat(2, minmax(0, 1fr)); 
       gap: 10px; 
       justify-content: center; 
     }
   }
-  
-  .logo-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+
+@media (max-width: 640px) {
+  .button-options button {
+    padding: 8px 10px;
+    font-size: 12px;
   }
+
+  .category {
+    gap: 18px;
+  }
+
+  .logo-container p {
+    font-size: 12px;
+  }
+}
+  
+.logo-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.skills-description {
+  padding: 12px 16px 22px;
+}
   
  h1 {
-    font-family: 'Poppins';
-    font-size: medium;
+    font-family: var(--font-display);
+    font-size: 18px;
     text-align: left;
-    padding-left: 20px;
+    padding-left: 8px;
+    letter-spacing: 0.02em;
+    color: var(--text-100);
   }
   
   .logo-container {
@@ -60,15 +87,33 @@
     justify-content: center;
   }
   
-  .logo-container p {
-    font-family: 'Poppins';
+.logo-container p {
+    font-family: var(--font-body);
     text-align: center;
     margin-top: 12px;
     width: 100%;
+    color: var(--text-200);
   }
+
+.skills-section {
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 16px;
+  padding: 12px 10px 16px;
+  margin: 12px 0;
+}
   
-  .logo {
-    color: black;
-    height: 50px;
+.logo {
+    color: var(--text-200);
+    height: auto;
     width: auto;
   }
+
+.logo-container {
+  transition: transform 0.25s ease, filter 0.25s ease;
+}
+
+.logo-container:hover {
+  transform: translateY(-4px);
+  filter: drop-shadow(0 14px 18px rgba(12, 18, 34, 0.5));
+}

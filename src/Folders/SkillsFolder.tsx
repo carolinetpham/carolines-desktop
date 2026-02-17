@@ -18,7 +18,7 @@ import {
 } from "react-icons/fa";
 import {
   SiIntellijidea,
-  SiVisualstudiocode,
+  SiVscodium,
   SiStreamlit,
   SiFlask,
   SiMysql,
@@ -91,7 +91,7 @@ const SkillsClickComponent: React.FC = () => {
         { logo: FaGit, name: "Git", type: [SkillType.Organization] },
         { logo: FaGithub, name: "GitHub", type: [SkillType.Organization] },
         {
-          logo: SiVisualstudiocode,
+          logo: SiVscodium,
           name: "VS Code",
           type: [SkillType.Organization],
         },
@@ -138,30 +138,39 @@ const SkillsClickComponent: React.FC = () => {
     item,
     isActive,
     activeColor,
-  }) => (
-    <div
-      className="logo-container"
-      style={{
-        opacity: isActive ? 1.5 : 0.5,
-        transform: isActive ? "scale(1.2)" : "scale(1)",
-        transition: "all 0.8s ease",
-      }}
-    >
-      <item.logo
-        className="logo"
+  }) => {
+    const Logo = item.logo as unknown as React.FC<
+      React.SVGProps<SVGSVGElement>
+    >;
+    return (
+      <div
+        className="logo-container"
         style={{
-          fontSize: isMobile ? "50px" : "30px",
-          color: isActive && activeColor ? activeColor : "#363636",
+          opacity: isActive ? 1.5 : 0.5,
+          transform: isActive ? "scale(1.2)" : "scale(1)",
+          transition: "all 0.8s ease",
         }}
-      />
-      <p>{item.name}</p>
-    </div>
-  );
+      >
+        <Logo
+          className="logo"
+          style={{
+            fontSize: isMobile ? "50px" : "30px",
+            color: isActive && activeColor ? activeColor : "#363636",
+          }}
+        />
+        <p>{item.name}</p>
+      </div>
+    );
+  };
+
+  const FolderIcon = FaFolder as unknown as React.FC<
+    React.SVGProps<SVGSVGElement>
+  >;
 
   return (
     <>
       <div className="folder-wrapper">
-        <FaFolder
+        <FolderIcon
           onClick={showModal}
           style={{
             color: "#fff2b3",

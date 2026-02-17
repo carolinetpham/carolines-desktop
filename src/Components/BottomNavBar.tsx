@@ -4,6 +4,10 @@ import { useNavigate } from "react-router-dom";
 import DateTime from "./DateTime";
 import "././ComponentStyleSheets/BottomNavBar.css";
 
+const CatIcon = FaCat as unknown as React.FC<
+  React.SVGProps<SVGSVGElement>
+>;
+
 const BottomNavBar = () => {
   const [showLogoutConfirmation, setShowLogoutConfirmation] = useState(false);
   const [isLoggingOut, setIsLoggingOut] = useState(false);
@@ -22,7 +26,7 @@ const BottomNavBar = () => {
         className="power-button"
         onClick={() => setShowLogoutConfirmation(true)}
       >
-        <FaCat size={30} />
+        <CatIcon style={{ fontSize: 30 }} />
       </button>
       <div className="date-time-wrapper">
         <DateTime />
