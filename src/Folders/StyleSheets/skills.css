@@ -29,11 +29,31 @@
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+  background: rgba(255, 255, 255, 0.05);
+  color: var(--text-200);
+  font-weight: 600;
 }
   
 .button-options button:hover {
   transform: translateY(-2px) scale(1.03); 
-  opacity: 0.9; 
+  opacity: 0.95; 
+  border-color: rgba(178, 155, 255, 0.28);
+  color: var(--text-100) !important;
+}
+
+.skill-filter-button.is-active {
+  background: linear-gradient(
+    135deg,
+    rgba(178, 155, 255, 0.28),
+    rgba(95, 167, 119, 0.22)
+  ) !important;
+  border-color: rgba(178, 155, 255, 0.4) !important;
+  color: var(--text-100) !important;
+}
+
+.skill-filter-button:focus-visible {
+  outline: 2px solid rgba(178, 155, 255, 0.75);
+  outline-offset: 2px;
 }
   
   @media (max-width: 800px) {
@@ -68,10 +88,11 @@
 }
 
 .skills-description {
-  padding: 12px 16px 22px;
+  padding: 0;
+  min-height: 430px;
 }
-  
- h1 {
+
+.skills-description h1 {
     font-family: var(--font-display);
     font-size: 18px;
     text-align: left;
@@ -93,6 +114,7 @@
     margin-top: 12px;
     width: 100%;
     color: var(--text-200);
+    font-weight: 500;
   }
 
 .skills-section {
@@ -116,4 +138,8 @@
 .logo-container:hover {
   transform: translateY(-4px);
   filter: drop-shadow(0 14px 18px rgba(12, 18, 34, 0.5));
+}
+
+.skills-modal .ant-modal-body {
+  overflow-y: scroll !important;
 }

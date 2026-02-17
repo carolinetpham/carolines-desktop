@@ -1,5 +1,4 @@
 import React from "react";
-import ReactDOM from "react-dom";
 
 type DialogProps = {
   open?: boolean;
@@ -7,11 +6,24 @@ type DialogProps = {
   children: React.ReactNode;
 };
 
-export const Dialog: React.FC<DialogProps> = ({ open = true, children }) => {
-  if (!open) return null;
-  return ReactDOM.createPortal(
-    <div className="dialog-overlay">{children}</div>,
-    document.body
+export const Dialog: React.FC<DialogProps> = ({
+  open = true,
+  onOpenChange,
+  children,
+}) => {
+  if (!open) {
+    return null;
+  }
+
+  return (
+    <div className="dialog-root" role="dialog" aria-modal="true">
+      <div
+        className="dialog-overlay"
+        onClick={() => onOpenChange?.(false)}
+        aria-hidden="true"
+      />
+      {children}
+    </div>
   );
 };
 
@@ -22,24 +34,16 @@ type DialogContentProps = React.HTMLAttributes<HTMLDivElement> & {
 
 export const DialogContent: React.FC<DialogContentProps> = ({
   children,
-  onInteractOutside,
-  onEscapeKeyDown,
+  onClick,
   ...props
 }) => {
   return (
     <div
       className="dialog-content"
-      onMouseDown={(event) => {
-        if (event.target === event.currentTarget) {
-          onInteractOutside?.(event.nativeEvent);
-        }
+      onClick={(event) => {
+        event.stopPropagation();
+        onClick?.(event);
       }}
-      onKeyDown={(event) => {
-        if (event.key === "Escape") {
-          onEscapeKeyDown?.(event.nativeEvent);
-        }
-      }}
-      tabIndex={-1}
       {...props}
     >
       {children}

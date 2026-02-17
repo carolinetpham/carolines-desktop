@@ -1,6 +1,5 @@
 import React, { useState } from "react";
-import { FaFolder, FaNodeJs } from "react-icons/fa";
-import { CloseOutlined } from "@ant-design/icons";
+import { FaNodeJs } from "react-icons/fa";
 import { IconType } from "react-icons";
 import {
   FaJava,
@@ -34,7 +33,9 @@ import {
 
 import "./StyleSheets/styles.css";
 import "./StyleSheets/skills.css";
-import { Button, Modal } from "antd";
+import { Modal } from "antd";
+import { getLucideIcon } from "../lib/lucide";
+import { Button } from "../Components/ui/button";
 
 // Define the SkillType enum
 export enum SkillType {
@@ -43,12 +44,19 @@ export enum SkillType {
   Design = "Design",
   Organization = "Organization",
 }
+const CloseIcon = getLucideIcon("X");
+const FolderIcon = getLucideIcon("Folder");
 
 const SkillsClickComponent: React.FC = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [activeCategory, setActiveCategory] = useState<SkillType | null>(null);
-  const [activeColor, setActiveColor] = useState<string | null>(null);
   const isMobile = window.innerWidth < 768;
+  const categoryColors: Record<SkillType, string> = {
+    [SkillType.FrontEnd]: "var(--accent-1)",
+    [SkillType.BackEnd]: "#88b9ff",
+    [SkillType.Design]: "#d19bff",
+    [SkillType.Organization]: "var(--accent-2)",
+  };
 
   const showModal = () => {
     setIsModalOpen(true);
@@ -58,9 +66,8 @@ const SkillsClickComponent: React.FC = () => {
     setIsModalOpen(false);
   };
 
-  const toggleCategory = (category: SkillType, color: string) => {
+  const toggleCategory = (category: SkillType) => {
     setActiveCategory((prev) => (prev === category ? null : category));
-    setActiveColor((prev) => (prev === color ? null : color));
   };
 
   const skills = [
@@ -146,111 +153,95 @@ const SkillsClickComponent: React.FC = () => {
       <div
         className="logo-container"
         style={{
-          opacity: isActive ? 1.5 : 0.5,
-          transform: isActive ? "scale(1.2)" : "scale(1)",
-          transition: "all 0.8s ease",
+          opacity: isActive ? 1 : 0.7,
+          transform: isActive ? "scale(1.08)" : "scale(1)",
+          transition: "all 0.35s ease",
         }}
       >
         <Logo
           className="logo"
           style={{
             fontSize: isMobile ? "50px" : "30px",
-            color: isActive && activeColor ? activeColor : "#363636",
+            color: isActive
+              ? activeColor || "var(--text-100)"
+              : "rgba(207, 207, 214, 0.72)",
           }}
         />
-        <p>{item.name}</p>
+        <p style={{ color: isActive ? "var(--text-100)" : "var(--text-200)" }}>
+          {item.name}
+        </p>
       </div>
     );
   };
-
-  const FolderIcon = FaFolder as unknown as React.FC<
-    React.SVGProps<SVGSVGElement>
-  >;
 
   return (
     <>
       <div className="folder-wrapper">
         <FolderIcon
           onClick={showModal}
-          style={{
-            color: "#fff2b3",
-            cursor: "pointer",
-            fontSize: "100px",
-            filter: "drop-shadow(2px 2px 2px #242424)",
-          }}
+          className="folder-icon"
+          size={96}
+          strokeWidth={1.5}
         />
         <span className="folder-text">Skills</span>
       </div>
       <Modal
+        className="folder-modal skills-modal"
         width={isMobile ? "90%" : "85%"}
         open={isModalOpen}
         closable={false}
         footer={null}
-        style={{
-          padding: 0,
-          height: "80vh",
-          display: "flex",
-          flexDirection: "column",
-        }}
+        styles={{ body: { padding: 0, maxHeight: "80vh", overflowY: "auto", overflowX: "hidden" } }}
       >
-        <div
-          style={{
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "space-between",
-            padding: "10px 20px",
-            backgroundColor: "#fff",
-            borderBottom: "1px solid #ddd",
-            position: "sticky",
-            top: 0,
-            zIndex: 10,
-          }}
-        >
-          <span style={{ fontSize: "18px", fontWeight: "bold" }}>
-            Technical Skills
-          </span>
-          <CloseOutlined
+        <div className="folder-panel-header">
+          <div className="folder-panel-header-left">
+            <span className="folder-panel-title">Technical Skills</span>
+          </div>
+          <button
+            type="button"
             onClick={handleCancel}
-            style={{
-              background: "none",
-              border: "none",
-              cursor: "pointer",
-              fontSize: "18px",
-            }}
-          />
+            className="folder-panel-action"
+            aria-label="Close Skills modal"
+          >
+            <CloseIcon size={18} />
+          </button>
         </div>
-        <div className="button-options">
+        <div className="button-options folder-panel-content">
           <Button
-            color="blue"
-            variant="solid"
-            onClick={() => toggleCategory(SkillType.FrontEnd, "#1677ff")}
+            className={`skill-filter-button ${
+              activeCategory === SkillType.FrontEnd ? "is-active" : ""
+            }`}
+            onClick={() => toggleCategory(SkillType.FrontEnd)}
           >
             Front-End
           </Button>
           <Button
-            color="purple"
-            variant="solid"
-            onClick={() => toggleCategory(SkillType.Design, "#9254de")}
+            className={`skill-filter-button ${
+              activeCategory === SkillType.Design ? "is-active" : ""
+            }`}
+            onClick={() => toggleCategory(SkillType.Design)}
           >
             Design
           </Button>
           <Button
-            color="pink"
-            variant="solid"
-            onClick={() => toggleCategory(SkillType.BackEnd, "#f759ab")}
+            className={`skill-filter-button ${
+              activeCategory === SkillType.BackEnd ? "is-active" : ""
+            }`}
+            onClick={() => toggleCategory(SkillType.BackEnd)}
           >
             Back-End
           </Button>
           <Button
-            color="green"
-            variant="solid"
-            onClick={() => toggleCategory(SkillType.Organization, "#73d13d")}
+            className={`skill-filter-button ${
+              activeCategory === SkillType.Organization ? "is-active" : ""
+            }`}
+            onClick={() => toggleCategory(SkillType.Organization)}
           >
             Organization
           </Button>
         </div>
         <div id="#skills">
-          <div className="skills-description">
+          <div className="skills-description folder-panel-content">
             {skills.map((skill, index) => (
               <div key={index}>
                 <h1>{skill.category}:</h1>
@@ -262,7 +253,9 @@ const SkillsClickComponent: React.FC = () => {
                       isActive={
                         !activeCategory || item.type.includes(activeCategory)
                       }
-                      activeColor={activeColor}
+                      activeColor={
+                        activeCategory ? categoryColors[activeCategory] : null
+                      }
                     />
                   ))}
                 </div>
