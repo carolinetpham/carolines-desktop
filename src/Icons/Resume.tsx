@@ -5,6 +5,7 @@ export default function Resume() {
   return (
     <div className="resume-wrapper">
       <a
+        className="resume-icon-link"
         href="https://drive.google.com/file/d/1_QMTxTG494m9UuXVi6FLHTFzYU-mR6RJ/view?usp=sharing"
         target="_blank"
         rel="noopener noreferrer"

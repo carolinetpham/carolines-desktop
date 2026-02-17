@@ -5,6 +5,7 @@ export default function Github() {
   return (
     <div className="github-wrapper">
       <a
+        className="github-icon-link"
         href="https://github.com/carolinetpham"
         target="_blank"
         rel="noopener noreferrer"

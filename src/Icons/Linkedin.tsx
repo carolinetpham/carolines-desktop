@@ -5,6 +5,7 @@ export default function Linkedin() {
   return (
     <div className="linkedin-wrapper">
       <a
+        className="linkedin-icon-link"
         href="https://www.linkedin.com/in/carolinetpham/"
         target="_blank"
         rel="noopener noreferrer"
