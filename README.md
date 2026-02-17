@@ -1,28 +1,41 @@
-# 👩🏻‍💻 Welcome to my desktop (aka personal portfolio website)! 
+# Welcome to my desktop (aka personal portfolio website)
 
-- This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-- Check it out in your browser [here](https://carolinepham.dev/)!
-- Deployed with [Netlify](https://app.netlify.com/)
+This is an interactive portfolio site built with React + TypeScript and powered by Vite.
+
+- Live site: [carolinepham.dev](https://carolinepham.dev/)
+- Deployment: [Netlify](https://app.netlify.com/)
+
+## Getting Started
+
+Install dependencies:
+
+```bash
+npm install
+```
+
+Start the development server:
+
+```bash
+npm run dev
+```
+
+Then open the local URL shown in your terminal (typically `http://localhost:5173`).
 
 ## Available Scripts
 
-In the project directory, you can run:
-### `npm install`
-After packages have installed, you can run:
-### `npm start`
-
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+- `npm run dev` - Starts the Vite dev server.
+- `npm run build` - Builds the app for production into `dist/`.
+- `npm run preview` - Serves the production build locally for preview.
 
 ## Languages, Libraries, and Frameworks
 
 - `TypeScript`
+- `React`
+- `Vite`
+- `React Router`
+- `shadcn/ui`
+- `React Icons`
+- `Lucide React`
+- `Ant Design`
 - `CSS`
 - `HTML`
-- `React`
-- `React Router Dom`
-- `React Icons`
-- `Ant Design`
-
-## Credits
-Desktop background credit to [Louis Hoebregts](https://codepen.io/Mamboleoo/pen/BxMQYQ)
