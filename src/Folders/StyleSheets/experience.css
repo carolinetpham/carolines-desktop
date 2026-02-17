@@ -4,9 +4,77 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  padding: 10px 24px 24px;
 }
 
 .timeline-items {
-  font-family: "Poppins";
-  font-size: larger;
+  font-family: var(--font-body);
+  font-size: 18px;
+  color: var(--text-200);
+}
+
+.timeline-items .ant-timeline-item-head {
+  background: var(--accent-1);
+  border-color: var(--accent-1);
+}
+
+.timeline-items .ant-timeline-item-tail {
+  border-inline-start-color: rgba(255, 255, 255, 0.12);
+}
+
+.timeline-items .ant-timeline-item-content {
+  color: var(--text-200);
+}
+
+.timeline-items strong {
+  color: var(--text-100);
+}
+
+.timeline-item {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.timeline-toggle {
+  margin-top: 6px;
+  align-self: flex-start;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 12px;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: rgba(255, 255, 255, 0.06);
+  color: var(--text-100);
+  font-family: var(--font-body);
+  font-size: 13px;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+}
+
+.timeline-toggle:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 10px 22px rgba(11, 16, 30, 0.25);
+  background: rgba(255, 255, 255, 0.12);
+}
+
+.timeline-bullets {
+  margin: 6px 0 0 16px;
+  padding: 0;
+  display: grid;
+  gap: 6px;
+  color: var(--text-200);
+  font-size: 14px;
+}
+
+.timeline-bullets li {
+  line-height: 1.5;
+}
+
+@media (max-width: 800px) {
+  .timeline-bullets {
+    margin-left: 12px;
+    font-size: 13px;
+  }
 }

@@ -24,6 +24,11 @@ const App: React.FC = () => {
     localStorage.setItem("username", name);
   };
 
+  const handleLogout = () => {
+    localStorage.removeItem("username");
+    setUsername(null);
+  };
+
   return (
     <div className="App">
       <HashRouter>
@@ -40,7 +45,7 @@ const App: React.FC = () => {
             path="/FoldersPage/*"
             element={
               username ? (
-                <FoldersPage />
+                <FoldersPage onLogout={handleLogout} />
               ) : (
                 <Navigate to="/LoginPage" />
               )

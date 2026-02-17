@@ -1,25 +1,60 @@
 /*About Me Styling*/
 
 h2 {
-  font-size: large;
+  font-size: 26px;
+  margin: 0;
+  font-family: var(--font-display);
 }
 
 .about-desc {
-  font-size: small;
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--text-200);
 }
 
 .about-header {
-  line-height: 25px;
+  line-height: 1.4;
+}
+
+.about-header h3 {
+  color: var(--text-200);
+  font-weight: 500;
+  margin: 6px 0 0 0;
+}
+
+.about-info {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  padding: 24px 28px;
+}
+
+.about-dialog-body {
+  flex: 1;
+  display: flex;
+  align-items: center;
+}
+
+.about-text {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 12px;
+  padding: 24px !important;
 }
 
 .headshot {
-  border-radius: 25px;
-  filter: drop-shadow(5px 9px 11px #616161);
+  border-radius: 24px;
+  filter: drop-shadow(0 18px 26px rgba(12, 18, 34, 0.45));
+  width: 280px;
+  max-width: 100%;
+  height: auto;
 }
 
 @media (max-width: 800px) {
   .headshot {
-    max-width: 273px;
+    max-width: 200px;
   }
   .about-info {
     flex-direction: column;
@@ -34,5 +69,11 @@ h2 {
   .about-header {
     display: flex;
     flex-wrap: wrap;
+    justify-content: center;
+    text-align: center;
+  }
+
+  .about-text {
+    padding: 16px !important;
   }
 }
