@@ -44,13 +44,7 @@ const normalizeAssetPath = (src?: string) => {
   return src;
 };
 
-const FolderIcon = FaFolder as unknown as React.FC<
-  React.SVGProps<SVGSVGElement>
->;
-
 const ProjectsClickComponent: React.FC = () => {
-const markdownFiles = import.meta.glob("./ProjectMarkdowns/*.md", { as: "raw" });
-
   const [isModalOpen, setIsModalOpen] = useState(false);
   const isMobile = window.innerWidth < 768;
   const [currentView, setCurrentView] = useState<"projects" | "details">(
