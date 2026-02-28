@@ -20,6 +20,9 @@ import petfetchMarkdown from "./ProjectMarkdowns/petfetch.md?raw";
 import aeyeMarkdown from "./ProjectMarkdowns/aeye.md?raw";
 import oldPortfolioMarkdown from "./ProjectMarkdowns/old-portfolio.md?raw";
 import vbjMarkdown from "./ProjectMarkdowns/vbj.md?raw";
+import goodreadsRedesignMarkdown from "./ProjectMarkdowns/goodreads-redesign.md?raw";
+import guardconnectMarkdown from "./ProjectMarkdowns/guardconnect.md?raw";
+import threeStonesMarkdown from "./ProjectMarkdowns/3stones.md?raw";
 
 const FolderIcon = getLucideIcon("Folder");
 const CloseIcon = getLucideIcon("X");
@@ -53,6 +56,43 @@ const ProjectsClickComponent: React.FC = () => {
   const [selectedProject, setSelectedProject] = useState<string | null>(null);
 
   const projects = [
+    {
+      id: "goodreads-redesign",
+      title: "Goodreads Redesign",
+      markdown: goodreadsRedesignMarkdown,
+      description:
+        "Redesigning Goodreads to improve discovery, reflection, and rating workflows through heuristic evaluation, competitive analysis, and scalable UX system design.",
+      imgSrc: "./images/goodreads-image.png",
+      images: [
+        "./images/Goodreads-images/HI-FI-IN-PROGRESS-1.png",
+        "./images/Goodreads-images/HI-FI-IN-PROGRESS-2.png",
+      ],
+    },
+    {
+      id: "guardconnect",
+      title: "GuardConnect",
+      markdown: guardconnectMarkdown,
+      description:
+        "Led end-to-end UX for a communications and mentorship platform serving 4,000+ Guardsmen, from stakeholder interviews and workflow mapping to high-fidelity prototypes and accessibility audits.",
+      imgSrc: "./images/guardconnect-image.png",
+      images: [
+        "./images/GuardConnect-images/gc-personas.png",
+        "./images/GuardConnect-images/gc-lofis.png",
+        "./images/GuardConnect-images/gc-hifis.png",
+      ],
+    },
+    {
+      id: "3stones",
+      title: "3Stones",
+      markdown: threeStonesMarkdown,
+      description:
+        "Designed a responsive website experience for a real-estate startup, aligning web interaction patterns with existing mobile branding and user flows.",
+      imgSrc: "./images/3stones-image.png",
+      images: [
+        "./images/3stones-images/3stones-1.png",
+        "./images/3stones-images/3stones-midfi.png",
+      ],
+    },
     {
       id: "boston-coffee-shops",
       title: "Boston Coffee Shops",
@@ -244,6 +284,11 @@ const ProjectsClickComponent: React.FC = () => {
                     alt={`${project.title}`}
                     src={normalizeAssetPath(project.imgSrc)}
                     className="card-cover-image"
+                    style={
+                      project.id === "guardconnect"
+                        ? { objectPosition: "center 20%" }
+                        : undefined
+                    }
                   />
                 </div>
                 <CardHeader className="card-header">

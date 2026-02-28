@@ -1,17 +1,40 @@
-## Updated Personal Portfolio (Caroline's Desktop)
+## Updated Personal Portfolio (Caroline’s Desktop)  
+**Interactive UX + Front-End Engineering**  
+**Focus:** Experiential design, metaphor-driven navigation, scalable implementation
 
-This website!
+### Overview
+Caroline’s Desktop is a full redesign of my personal portfolio built as an interactive desktop simulation. The project explores how interaction design can communicate product thinking and technical skill more effectively than a traditional static portfolio.
 
-### Thoughts, Ideas, Structure
+### UX Problem
+Most portfolios present work as static case studies, limiting the ability to demonstrate interaction design maturity. The challenge was to design a creative, immersive experience without sacrificing usability, clarity, or recruiter efficiency.
 
-Overall, I wanted a creative way to showcase my personal portfolio. Caroline's Desktop, what I've called this portfolio is supposed to emulate a desktop simulation. I designed it so that users can have their own interactive experience while exploring and getting to know a little bit more about me!
+### My Role
+- Designed the interaction model and desktop metaphor system  
+- Defined onboarding patterns to reduce first-time user confusion  
+- Structured information architecture to balance exploration with clarity  
+- Built and implemented the entire front-end architecture  
 
-I didn't want to provide a password for this page, as I want anyone to be able to view it. So the home page asking for a name is my version of a "password". Additionally, I wanted to include a small tutorial in case anyone needed help figuring out what's going on.
+### UX Strategy
+- Introduced a lightweight “name entry” interaction to create engagement without gating access  
+- Added a short guided tutorial to improve discoverability  
+- Structured content using folder-based navigation to reinforce mental models  
+- Prioritized clarity in typography, spacing, and hierarchy to prevent novelty from overwhelming usability  
+- Designed with recruiter scan behavior in mind (clear project sections, consistent structure)
 
-I recently completed CS 4550 - Web Development at Northeastern, and I wanted to apply some of my new skills from that class into this new portfolio, which is why I decided to completely revamp my portfolio from my last one. Although my last one worked well, this website showcases more of my creative side, as well as applies new skills such as TypeScript, and React-Router. Additionally, I am using the Ant Design framework for UI elements, overall giving me a cleaner website look.
+### Implementation
+- React + TypeScript  
+- React Router for structured navigation  
+- Component-based architecture for scalability  
+- Ant Design system for UI consistency  
+- Predictable state management for maintainable interaction logic  
 
-I have so many fun ideas I want to implement to this website, so visit back to see new features!
+### Design Considerations
+- Balanced playfulness with professional clarity  
+- Ensured accessibility through contrast, legibility, and interaction predictability  
+- Designed for scalability to accommodate future projects  
 
-### Repository Link
+### Outcome
+The redesign demonstrates systems-level UX thinking, interaction design maturity, and the ability to translate a conceptual metaphor into a structured, production-ready front-end system.
 
-You can view the GitHub repository for this website [here](https://github.com/carolinetpham/carolines-updated-website).
+### Repository
+You can find the repository [here](https://github.com/carolinetpham/carolines-updated-website).

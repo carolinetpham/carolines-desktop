@@ -1,19 +1,34 @@
-## AEye - High Fidelity Figma Prototype
+## AEye — High-Fidelity Product Prototype  
+**Human-Computer Interaction Final Project**  
+**Focus:** Research-driven iteration, engagement systems, interaction clarity
 
-IS4300 - Human Computer Interaction Final Group Project
+### Overview
+AEye is a mobile learning application concept designed to help users distinguish AI-generated content from real-world media through structured educational modules and repeat-use game mechanics.
 
-### Process
+### UX Problem
+As AI-generated content becomes more prevalent, existing learning tools are either overly technical or not engaging enough to encourage sustained learning. Users need low-friction, repeatable practice that reinforces pattern recognition over time.
 
-This was a full UX Design process. My team and I did research, conducted usability testing, created sketches, wireframes, low fidelity prototypes, and finally a high fidelity prototype.
+### My Role
+- Conducted user interviews to uncover misconceptions and learning friction
+- Synthesized research into personas and structured user journeys
+- Designed core learning flows, feedback loops, and social interaction features
+- Led usability testing iterations to improve discoverability and navigation clarity
 
-We wanted to create an app that is similar to that of Quizlet or Duolingo to help those learn to decipher between real life applications and AI applications. We wanted to make it fun, so we included a daily challenge, similar to how the New York Times' Wordle has a new challenge everyday, as well as some learning modules that will allow you to gain points and compete on the leaderboard with your friends or globally!
+### UX Strategy
+- Designed a daily challenge loop to support habit formation
+- Built visible progression systems (points, levels, milestones)
+- Implemented local and global leaderboards to increase motivation
+- Repositioned and redesigned “Add Friends” after usability testing revealed low feature discoverability
+- Clarified action hierarchy to reduce cognitive overload during learning tasks
 
-We created three different personas based on initial interviews, conducted additional interviews to figure out what people enjoy about a learning game like Duolingo or Quizlet, as well as usability testing.
+### Execution
+- Low-fidelity sketches and wireframes to test task flows
+- Iterative usability testing to identify friction points
+- High-fidelity interactive Figma prototype with defined UI states and edge cases
+- Documented interaction patterns and rationale behind design decisions
 
-When we went through usability testing, we actually realized that some of our design choices were not usable for all users. Some participants had issues finding the "Add Friends" button, hence we changed the location and added additional ways to find this button.
+### Outcome
+Improved navigation clarity and feature discoverability across both learning and social flows, demonstrating end-to-end UX ownership from research synthesis through high-fidelity interactive prototype delivery.
 
-Additionally, we made sure to create storyboards and user journeys to see how our user's feel, how they may interact with our application, as well as ensuring that our app stayed consistent with our personas.
-
-### Full Prototype
-
-Check out the full prototype on Figma [here](https://www.figma.com/proto/JHx83jOa8YN8Zv5R6Wq4lU/AEye?node-id=211-658&p=f&t=2qE5Gm8bJVZyPUFl-1&scaling=scale-down&content-scaling=fixed&page-id=207%3A282&starting-point-node-id=211%3A267&show-proto-sidebar=1).
+### Prototype
+You can view the full Figma prototype [here](https://www.figma.com/proto/JHx83jOa8YN8Zv5R6Wq4lU/AEye?node-id=211-658&p=f&t=2qE5Gm8bJVZyPUFl-1&scaling=scale-down&content-scaling=fixed&page-id=207%3A282&starting-point-node-id=211%3A267&show-proto-sidebar=1).

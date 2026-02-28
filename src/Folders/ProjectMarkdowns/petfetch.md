@@ -1,46 +1,49 @@
-## PetFetch
+## PetFetch  
+**Data-Driven Product Design | CS 3200 – Databases (Final Project)**  
+**Focus:** Persona-driven strategy, UX–database alignment, full-stack systems thinking
 
-CS 3200 - Introduction to Databases Final Group Project
+### Overview
+PetFetch is a database-backed adoption platform concept designed to centralize rescue data, streamline adoption workflows, and support operational and research use cases. The project demonstrates how user research, product strategy, and database architecture must align to create meaningful, usable systems.
 
-### Goal
+### UX Problem
+Animal rescue data is frequently fragmented across disconnected tools, making it difficult for:
 
-Our goal was to centralize animal rescue data to expand the reach of animal rescues and streamline adoption processes. We wanted to provide stray, abandoned, and unwanted animals a home, and we wanted to reduce the amount of kill-shelters. Our intended users consist of employees of animal shelters, individuals looking to adopt or foster pets, individuals looking to put pets up for adoption, and researchers who want to use the data our application provides (i.e. government agency trying to figure out which states have high rates of animals being put down before successful adoption).
-A sampling of the expected major functionality would consist of search and filtering functionality for animals, updating and creating data for animals, displaying animal health and medical condition/history, and rescue/adoption statistics for each agency.
+- Adopters to confidently evaluate pets  
+- Agency managers to maintain accurate records  
+- Researchers to identify trends and systemic issues  
 
-### Personas
+The lack of centralized, structured data increases friction, slows decision-making, and limits transparency across stakeholders.
 
-We had 3 personas that we wanted to design for: Clark, an adopter, Janet, an agency manager, and Alex, a researcher.
+### My Role
+- Defined and refined three core personas (Adopter, Agency Manager, Researcher)  
+- Translated persona needs into structured user stories and database requirements  
+- Designed search, filtering, and adoption-tracking workflows  
+- Helped align API endpoints and schema design with front-end user flows  
+- Contributed to building and testing the end-to-end prototype  
 
-#### Clark's User Stories:
+### UX Strategy
+- Structured search and filtering around adopter mental models (breed, age, location, medical history)  
+- Designed clear adoption pipeline states to increase transparency  
+- Scoped CRUD workflows for agency-side operational clarity  
+- Ensured researcher use cases were supported through structured, queryable data  
+- Prioritized clarity and task efficiency over feature overload  
 
-- As an adopter, I need to be able to search for a pet with specific requirements so that I can find a companion that fits my family’s needs (a labrador retriever under the age of 3).
-- As an adopter, I need to be able to retrieve my adopted pet’s medical history so that I can provide proper care for my new pet.
-- As an adopter, I need to be able to search for pets in my zip code (02284) so that I can arrange the pick up of my new pet with ease.
+### Technical + System Architecture
+- Streamlit front-end (`./app`)  
+- Flask REST APIs (`./api`)  
+- MySQL database schema (`./database-files`)  
+- Mockaroo-generated realistic data to validate flows  
 
-#### Janet's User Stories:
+The schema design was directly informed by user stories to ensure that the database structure supported real workflows, not abstract data modeling.
 
-- As a rescue agency manager, I need to be able to update one of our pet’s medical history so that information about the pet’s health is up-to-date and easily accessible.
-- As a rescue agency manager, I need to be able to put a new pet up for adoption by entering new pet information into my user dashboard so that all pets that we house are accurately represented on Petalytic’s website.
-- As a rescue agency manager, I need to be able to track the status of pending adoptions for each pet so that I can efficiently manage adoption processes and keep potential adopters informed.
-- As a rescue agency manager, I need to be able to update a pet that had the incorrect breed so that the information can be accurate for our customers.
-- As a rescue agency manager, I need to be able to delete a pet that is no longer a part of any agencies we manage so that we can keep our agency pets accurate.
+### Execution
+- Persona development and user story mapping  
+- Feature scoping based on stakeholder priority  
+- End-to-end flow implementation (search → review → adopt / manage → analyze)  
+- Iterative debugging and validation against realistic datasets  
 
-#### Alex's User Stories
-
-- As a researcher, I need to be able to gather the names of the 5 rescue centers that have the least amount of adoptions so that my team can figure out how to increase the adoption rate at said agencies.
-- As a researcher, I need to be able to gather information about pets who have been at rescues for greater than 2 years so that we can decrease the rate of pets who spend large periods of their lifetime without a home.
-- As a researcher, I need to be able to gather data on the types of pets (species, breed, age) that are most commonly surrendered to animal rescues so that we can better understand the reasons behind these surrenders and implement strategies to prevent them.
-
-### Project Components
-
-- Streamlit App (in the ./app directory)
-- Flask REST APIs (in the ./api directory)
-- MySQL setup files (in the ./database-files directory)
-
-### Reflection
-
-Overall, I had a lot of fun with this project. There was a bit of a time crunch when it came to the project, but we were able to create a fully working app using mock data from [Mockaroo](mockaroo.com) tailored to our personas above.
+### Outcome
+Delivered a fully functional, end-to-end prototype that demonstrates the ability to connect user research, interaction design, API structure, and database modeling into a cohesive product system. The project highlights strong alignment between UX workflows and technical architecture.
 
 ### Repository
-
-To explore more, check out the repo [here](https://github.com/carolinetpham/Petalytics-PetFetch).
+You can find the repository [here](https://github.com/carolinetpham/Petalytics-PetFetch).

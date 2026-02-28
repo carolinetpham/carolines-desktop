@@ -1,16 +1,37 @@
-## Boston Coffee Shops
+## Boston Coffee Shops  
+**Product + UX Exploration**  
+**Focus:** Context-aware UX, information architecture, decision-support design
 
-This personal project was designed in my free time to experiment more with Google's APIs.
+### Overview
+A location-aware web application exploring how API-driven data and thoughtful UX design can help users make faster, more confident decisions about where to work or study.
 
-### Goals:
+### UX Problem
+Choosing a cafe is a time-sensitive decision. Proximity alone is insufficient—users need to quickly evaluate:
+- Wi-Fi availability
+- Seating and outlet access
+- Work-friendly atmosphere
 
-- To design a webpage that allows users to enable their location and see nearby cafes.
-- To allow for users to determine whether or not the cafe meets their needs.
+Most search experiences prioritize distance and ratings, forcing users to infer suitability through multiple clicks.
 
-### Initial Ideas:
+### My Role
+- Designed the information architecture around decision criteria rather than geography
+- Structured a map + list hybrid discovery flow for spatial awareness and comparison
+- Prioritized decision-critical signals above secondary content
+- Designed for mobile clarity and scanability
 
-I was inititally inspiried by my friends and I always trying to find the perfect coffee shop to study at. We have a hard time determining if a new coffee shop we are planning to visit has enough seating for our work, WiFi, etc.
+### UX Strategy
+- Reduced cognitive load in on-the-go decision making
+- Surfaced high-signal amenities early in the flow
+- Supported quick comparison between nearby options
+- Balanced real-world utility with lightweight visual design
 
-I wanted to create something that would be able to be used at your current location, therefore I enabled current locations in order to determine the nearest cafes.
+### Implementation
+- Google Maps API integration for nearby search
+- Location-derived browsing flow (current location → results → detail view)
+- Minimal, high-signal UI to reduce visual noise
 
-You can check out the GitHub repository [here](https://github.com/carolinetpham/boston-coffee-shops).
+### Outcome
+Demonstrated how context-driven IA combined with API integration can transform a generic nearby search into a decision-support experience focused on fit—not just distance.
+
+### Repository
+You can find the repository [here](https://github.com/carolinetpham/boston-coffee-shops).
