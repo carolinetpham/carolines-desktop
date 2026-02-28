@@ -27,6 +27,7 @@ import threeStonesMarkdown from "./ProjectMarkdowns/3stones.md?raw";
 const FolderIcon = getLucideIcon("Folder");
 const CloseIcon = getLucideIcon("X");
 const BackIcon = getLucideIcon("ChevronLeft");
+const NextIcon = getLucideIcon("ChevronRight");
 
 const normalizeAssetPath = (src?: string) => {
   if (!src) {
@@ -54,6 +55,7 @@ const ProjectsClickComponent: React.FC = () => {
     "projects"
   );
   const [selectedProject, setSelectedProject] = useState<string | null>(null);
+  const [activeImageIndex, setActiveImageIndex] = useState(0);
 
   const projects = [
     {
@@ -207,6 +209,7 @@ const ProjectsClickComponent: React.FC = () => {
     setIsModalOpen(false);
     setCurrentView("projects"); // Reset view when modal closes
     setSelectedProject(null); // Clear selected project
+    setActiveImageIndex(0);
   };
 
   const handleLearnMore = async (projectId: string) => {
@@ -218,13 +221,39 @@ const ProjectsClickComponent: React.FC = () => {
 
     setSelectedProject(projectId);
     setCurrentView("details");
+    setActiveImageIndex(0);
   };
 
   const handleBack = () => {
     setCurrentView("projects");
     setSelectedProject(null);
+    setActiveImageIndex(0);
   };
   const selectedProjectData = projects.find((p) => p.id === selectedProject) || null;
+  const selectedProjectImages = selectedProjectData?.images || [];
+  const hasSelectedProjectImages = selectedProjectImages.length > 0;
+  const selectedImageIndex = hasSelectedProjectImages
+    ? activeImageIndex % selectedProjectImages.length
+    : 0;
+  const selectedImage = hasSelectedProjectImages
+    ? selectedProjectImages[selectedImageIndex]
+    : null;
+
+  const handlePrevImage = () => {
+    if (!hasSelectedProjectImages) {
+      return;
+    }
+    setActiveImageIndex(
+      (prev) => (prev - 1 + selectedProjectImages.length) % selectedProjectImages.length
+    );
+  };
+
+  const handleNextImage = () => {
+    if (!hasSelectedProjectImages) {
+      return;
+    }
+    setActiveImageIndex((prev) => (prev + 1) % selectedProjectImages.length);
+  };
 
   return (
     <>
@@ -314,17 +343,6 @@ const ProjectsClickComponent: React.FC = () => {
         {currentView === "details" && selectedProjectData && (
           <div className="project-details folder-panel-content">
             <div key={selectedProjectData.id}>
-              <div className="project-media-grid">
-                {selectedProjectData.images.map((image, index) => (
-                  <div key={index} className="project-media-item">
-                    <img
-                      src={normalizeAssetPath(image)}
-                      alt={`Image ${index + 1} of ${selectedProjectData.title}`}
-                      className="project-media-image"
-                    />
-                  </div>
-                ))}
-              </div>
               <div>
                 <ReactMarkdown
                   className="mds"
@@ -354,6 +372,42 @@ const ProjectsClickComponent: React.FC = () => {
                   </p>
                 )}
               </div>
+              {selectedImage && (
+                <div className="project-carousel">
+                  <div className="project-carousel-frame">
+                    <img
+                      src={normalizeAssetPath(selectedImage)}
+                      alt={`Image ${selectedImageIndex + 1} of ${selectedProjectData.title}`}
+                      className="project-carousel-image"
+                    />
+                    {selectedProjectImages.length > 1 && (
+                      <>
+                        <button
+                          type="button"
+                          className="project-carousel-nav project-carousel-nav-prev"
+                          onClick={handlePrevImage}
+                          aria-label="View previous image"
+                        >
+                          <BackIcon size={20} />
+                        </button>
+                        <button
+                          type="button"
+                          className="project-carousel-nav project-carousel-nav-next"
+                          onClick={handleNextImage}
+                          aria-label="View next image"
+                        >
+                          <NextIcon size={20} />
+                        </button>
+                      </>
+                    )}
+                  </div>
+                  {selectedProjectImages.length > 1 && (
+                    <div className="project-carousel-count">
+                      {selectedImageIndex + 1} / {selectedProjectImages.length}
+                    </div>
+                  )}
+                </div>
+              )}
             </div>
           </div>
         )}
