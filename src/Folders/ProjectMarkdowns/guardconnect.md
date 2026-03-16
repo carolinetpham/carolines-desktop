@@ -1,5 +1,5 @@
 ## GuardConnect  
-**UX Strategy + Product Design | September 2025 – December 2025**  
+**UX Engineer | September 2025 – December 2025**  
 **Focus:** Workflow clarity, large-scale user systems, accessibility-driven design
 
 ### Overview

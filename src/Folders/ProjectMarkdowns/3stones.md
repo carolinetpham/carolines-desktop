@@ -1,5 +1,5 @@
 ## 3Stones  
-**UX Design Project | Sept 2025 – Dec 2025**  
+**UX Engineer | Sept 2025 – Dec 2025**  
 **Focus:** Responsive systems design, cross-platform consistency, implementation-ready handoff
 
 ### Overview
