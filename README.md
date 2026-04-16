@@ -2,9 +2,6 @@
 
 This is an interactive portfolio site built with React + TypeScript and powered by Vite.
 
-- Live site: [carolinepham.dev](https://carolinepham.dev/)
-- Deployment: [Netlify](https://app.netlify.com/)
-
 ## Getting Started
 
 Install dependencies:
